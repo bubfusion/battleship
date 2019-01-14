@@ -34,7 +34,7 @@ for (int i = 0; i < 10; i++)
 
 			cout << "How many spaces down would you like to move the destroyer?" << endl;
 			cin >> down;
-			cout << "How mant spaces across would you like to go?" << endl;
+			cout << "How many spaces across would you like to go?" << endl;
 			cin >> across;
 
 			if(direction == 'v' && down < 9 && across < 10)
@@ -49,6 +49,103 @@ for (int i = 0; i < 10; i++)
 			}
 			boardOutput(userBoard);
 
+			cout << "This is a sub and will take up 3 tiles" << endl << "###" << endl;
+			cout << "Please input either vertical or horizontal(h,v): ";
+			cin >> direction;
+
+				cout << "How many spaces down would you like to move the destroyer?" << endl;
+				cin >> down;
+				cout << "How many spaces across would you like to go?" << endl;
+				cin >> across;
+
+				if(direction == 'v' && down < 8 && across < 10)
+				{
+					userBoard[down][across] = '#';
+					userBoard[down+1][across] = '#';
+					userBoard[down+2][across] = '#';
+				}
+				if(direction == 'h' && down < 9 && across < 8)
+				{
+					userBoard[down][across] = '#';
+					userBoard[down][across+1] = '#';
+					userBoard[down][across+2] = '#';
+				}
+boardOutput(userBoard);
+
+			cout << "This is a battleship and will take up 3 tiles" << endl << "###" << endl;
+			cout << "Please input either vertical or horizontal(h,v): ";
+			cin >> direction;
+
+				cout << "How many spaces down would you like to move the destroyer?" << endl;
+				cin >> down;
+				cout << "How many spaces across would you like to go?" << endl;
+				cin >> across;
+
+				if(direction == 'v' && down < 8 && across < 10)
+				{
+					userBoard[down][across] = '#';
+					userBoard[down+1][across] = '#';
+					userBoard[down+2][across] = '#';
+				}
+				if(direction == 'h' && down < 9 && across < 8)
+				{
+					userBoard[down][across] = '#';
+					userBoard[down][across+1] = '#';
+					userBoard[down][across+2] = '#';
+				}
+boardOutput(userBoard);
+
+
+			cout << "This is a battleship and will take up 4 tiles" << endl << "####" << endl;
+			cout << "Please input either vertical or horizontal(h,v): ";
+			cin >> direction;
+
+				cout << "How many spaces down would you like to move the destroyer?" << endl;
+				cin >> down;
+				cout << "How many spaces across would you like to go?" << endl;
+				cin >> across;
+
+				if(direction == 'v' && down < 7 && across < 10)
+				{
+					userBoard[down][across] = '#';
+					userBoard[down+1][across] = '#';
+					userBoard[down+2][across] = '#';
+					userBoard[down+3][across] = '#';
+				}
+				if(direction == 'h' && down < 8 && across < 7)
+				{
+					userBoard[down][across] = '#';
+					userBoard[down][across+1] = '#';
+					userBoard[down][across+2] = '#';
+					userBoard[down][across+3] = '#';
+				}
+				boardOutput(userBoard);
+				cout << "This is an aircraft carrier and will take up 5 tiles" << endl << "#####" << endl;
+				cout << "Please input either vertical or horizontal(h,v): ";
+				cin >> direction;
+
+					cout << "How many spaces down would you like to move the destroyer?" << endl;
+					cin >> down;
+					cout << "How many spaces across would you like to go?" << endl;
+					cin >> across;
+
+					if(direction == 'v' && down < 6 && across < 10)
+					{
+						userBoard[down][across] = '#';
+						userBoard[down+1][across] = '#';
+						userBoard[down+2][across] = '#';
+						userBoard[down+3][across] = '#';
+						userBoard[down+4][across] = '#';
+					}
+					if(direction == 'h' && down < 7 && across < 6)
+					{
+						userBoard[down][across] = '#';
+						userBoard[down][across+1] = '#';
+						userBoard[down][across+2] = '#';
+						userBoard[down][across+3] = '#';
+						userBoard[down][across+4] = '#';
+					}
+			boardOutput(userBoard);
 
 return 0;
 }
