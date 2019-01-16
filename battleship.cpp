@@ -14,6 +14,7 @@ char aiBoard[10][10];
 char direction;
 int down;
 int across;
+bool check = false;
 
 for (int i = 0; i < 10; i++)
 		{
@@ -27,7 +28,7 @@ for (int i = 0; i < 10; i++)
 
 		cout << "This is your board!" << endl;
     boardOutput(userBoard);
-
+	while(check == false){
 		cout << "This is a destroyer and will take up 2 tiles" << endl << "##" << endl;
 		cout << "Please input either vertical or horizontal(h,v): ";
 		cin >> direction;
@@ -37,7 +38,17 @@ for (int i = 0; i < 10; i++)
 			cout << "How many spaces across would you like to go?" << endl;
 			cin >> across;
 
-			if(direction == 'v' && down < 9 && across < 10)
+			if (direction == 'v' && userBoard[down][across] == '-' && userBoard[down+1][across] == '-') {
+				check = true;
+			}
+			else if (direction == 'h' && userBoard[down][across] == '-' && userBoard[down+1][across] == '-'){
+				check = true;
+			}
+			else{
+				cout << "Your ship can not be placed in this spot. Please choose another" << endl;
+			}
+		}
+			if(direction == 'v' && down < 9 && across < 10 && check == true)
 			{
 				userBoard[down][across] = '#';
 				userBoard[down+1][across] = '#';
@@ -47,8 +58,10 @@ for (int i = 0; i < 10; i++)
 				userBoard[down][across] = '#';
 				userBoard[down][across+1] = '#';
 			}
-			boardOutput(userBoard);
 
+			boardOutput(userBoard);
+			check = false;
+		while(check == false){
 			cout << "This is a sub and will take up 3 tiles" << endl << "###" << endl;
 			cout << "Please input either vertical or horizontal(h,v): ";
 			cin >> direction;
@@ -57,6 +70,8 @@ for (int i = 0; i < 10; i++)
 				cin >> down;
 				cout << "How many spaces across would you like to go?" << endl;
 				cin >> across;
+
+			}
 
 				if(direction == 'v' && down < 8 && across < 10)
 				{
@@ -156,7 +171,7 @@ void boardOutput(char output[][10])
   {
     for(int j = 0; j < 10; j++)
     {
-      cout << setw(2) << output[i][j]; //loop used to output the prize board
+      cout << setw(2) << output[i][j];
     }
     cout << endl;
   }
