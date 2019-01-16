@@ -41,7 +41,7 @@ for (int i = 0; i < 10; i++)
 			if (direction == 'v' && userBoard[down][across] == '-' && userBoard[down+1][across] == '-') {
 				check = true;
 			}
-			else if (direction == 'h' && userBoard[down][across] == '-' && userBoard[down+1][across] == '-'){
+			else if (direction == 'h' && userBoard[down][across] == '-' && userBoard[down][across+1] == '-'){
 				check = true;
 			}
 			else{
@@ -71,6 +71,15 @@ for (int i = 0; i < 10; i++)
 				cout << "How many spaces across would you like to go?" << endl;
 				cin >> across;
 
+				if (direction == 'v' && userBoard[down][across] == '-' && userBoard[down+1][across] == '-' && userBoard[down+2][across] == '-') {
+					check = true;
+				}
+				else if (direction == 'h' && userBoard[down][across] == '-' && userBoard[down][across+1] == '-' && userBoard[down][across+2] == '-'){
+					check = true;
+				}
+				else{
+					cout << "Your ship can not be placed in this spot. Please choose another" << endl;
+				}
 			}
 
 				if(direction == 'v' && down < 8 && across < 10)
@@ -86,7 +95,8 @@ for (int i = 0; i < 10; i++)
 					userBoard[down][across+2] = '#';
 				}
 boardOutput(userBoard);
-
+check = false;
+	while(check == false){
 			cout << "This is a battleship and will take up 3 tiles" << endl << "###" << endl;
 			cout << "Please input either vertical or horizontal(h,v): ";
 			cin >> direction;
@@ -95,6 +105,17 @@ boardOutput(userBoard);
 				cin >> down;
 				cout << "How many spaces across would you like to go?" << endl;
 				cin >> across;
+
+				if (direction == 'v' && userBoard[down][across] == '-' && userBoard[down+1][across] == '-' && userBoard[down+2][across] == '-') {
+						check = true;
+					}
+				else if (direction == 'h' && userBoard[down][across] == '-' && userBoard[down][across+1] == '-' && userBoard[down][across+2] == '-'){
+				check = true;
+			}
+				else{
+					cout << "Your ship can not be placed in this spot. Please choose another" << endl;
+				}
+								}
 
 				if(direction == 'v' && down < 8 && across < 10)
 				{
@@ -109,8 +130,8 @@ boardOutput(userBoard);
 					userBoard[down][across+2] = '#';
 				}
 boardOutput(userBoard);
-
-
+check = false;
+	while(check == false){
 			cout << "This is a battleship and will take up 4 tiles" << endl << "####" << endl;
 			cout << "Please input either vertical or horizontal(h,v): ";
 			cin >> direction;
@@ -120,6 +141,16 @@ boardOutput(userBoard);
 				cout << "How many spaces across would you like to go?" << endl;
 				cin >> across;
 
+				if (direction == 'v' && userBoard[down][across] == '-' && userBoard[down+1][across] == '-' && userBoard[down+2][across] == '-' && userBoard[down+3][across] == '-') {
+						check = true;
+					}
+				else if (direction == 'h' && userBoard[down][across] == '-' && userBoard[down][across+1] == '-' && userBoard[down][across+2] == '-' && userBoard[down][across+3] == '-'){
+				check = true;
+								}
+								else{
+									cout << "Your ship can not be placed in this spot. Please choose another" << endl;
+								}
+							}
 				if(direction == 'v' && down < 7 && across < 10)
 				{
 					userBoard[down][across] = '#';
@@ -135,6 +166,9 @@ boardOutput(userBoard);
 					userBoard[down][across+3] = '#';
 				}
 				boardOutput(userBoard);
+				check = false;
+
+				while(check == false){
 				cout << "This is an aircraft carrier and will take up 5 tiles" << endl << "#####" << endl;
 				cout << "Please input either vertical or horizontal(h,v): ";
 				cin >> direction;
@@ -144,6 +178,17 @@ boardOutput(userBoard);
 					cout << "How many spaces across would you like to go?" << endl;
 					cin >> across;
 
+					if (direction == 'v' && userBoard[down][across] == '-' && userBoard[down+1][across] == '-' && userBoard[down+2][across] == '-' && userBoard[down+3][across] == '-'&& userBoard[down+4][across] == '-') {
+							check = true;
+						}
+					else if (direction == 'h' && userBoard[down][across] == '-' && userBoard[down][across+1] == '-' && userBoard[down][across+2] == '-' && userBoard[down][across+3] == '-' && userBoard[down][across+4] == '-'){
+					check = true;
+									}
+									else{
+										cout << "Your ship can not be placed in this spot. Please choose another" << endl;
+									}
+								}
+								
 					if(direction == 'v' && down < 6 && across < 10)
 					{
 						userBoard[down][across] = '#';
@@ -161,7 +206,7 @@ boardOutput(userBoard);
 						userBoard[down][across+4] = '#';
 					}
 			boardOutput(userBoard);
-
+			check = false;
 return 0;
 }
 
