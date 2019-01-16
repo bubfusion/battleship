@@ -15,6 +15,10 @@ char direction;
 int down;
 int across;
 bool check = false;
+int aiDown;
+int aiAcross;
+int aiDirectionNum;
+char aiDiretionChar;
 
 for (int i = 0; i < 10; i++)
 		{
@@ -188,7 +192,7 @@ check = false;
 										cout << "Your ship can not be placed in this spot. Please choose another" << endl;
 									}
 								}
-								
+
 					if(direction == 'v' && down < 6 && across < 10)
 					{
 						userBoard[down][across] = '#';
@@ -207,6 +211,58 @@ check = false;
 					}
 			boardOutput(userBoard);
 			check = false;
+
+
+
+
+
+
+
+
+		while(check == false){
+
+			aiDown = rand()%10;
+			aiAcross = rand()%11;
+			aiDiretion = rand()%2;
+
+			if(aiDiretion == 1)
+			{
+				aiDiretionChar = 'h'
+			}
+			else
+			{
+				aiDiretionChar = 'v'
+			}
+
+
+			if (aiDiretionChar == 'v' && aiBoard[down][across] == '-' && aiBoard[down+1][across] == '-') {
+				check = true;
+			}
+			else if (aiDiretionChar == 'h' && aiBoard[down][across] == '-' && aiBoard[down][across+1] == '-'){
+				check = true;
+			}
+		}
+
+
+			if(direction == 'v' && down < 9 && across < 10 && check == true)
+			{
+				userBoard[down][across] = '#';
+				userBoard[down+1][across] = '#';
+			}
+			if(direction == 'h' && down < 10 && across < 9)
+			{
+				userBoard[down][across] = '#';
+				userBoard[down][across+1] = '#';
+			}
+
+
+
+
+
+
+
+
+
 return 0;
 }
 
