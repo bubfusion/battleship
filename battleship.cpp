@@ -50,12 +50,12 @@ for (int i = 0; i < 10; i++)
 				cout << "Your ship can not be placed in this spot. Please choose another" << endl;
 			}
 		}
-			if(direction == 'v' && down < 9 && across < 10 && check == true)
+			if(direction == 'v')
 			{
 				userBoard[down][across] = 'D';
 				userBoard[down+1][across] = 'D';
 			}
-			if(direction == 'h' && down < 10 && across < 9)
+			if(direction == 'h')
 			{
 				userBoard[down][across] = 'D';
 				userBoard[down][across+1] = 'D';
