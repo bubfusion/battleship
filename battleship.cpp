@@ -15,8 +15,6 @@ char direction;
 int down;
 int across;
 bool check = false;
-int aiDown;
-int aiAcross;
 int aiDirectionNum;
 char aiDiretionChar;
 
@@ -54,13 +52,13 @@ for (int i = 0; i < 10; i++)
 		}
 			if(direction == 'v' && down < 9 && across < 10 && check == true)
 			{
-				userBoard[down][across] = '#';
-				userBoard[down+1][across] = '#';
+				userBoard[down][across] = 'D';
+				userBoard[down+1][across] = 'D';
 			}
 			if(direction == 'h' && down < 10 && across < 9)
 			{
-				userBoard[down][across] = '#';
-				userBoard[down][across+1] = '#';
+				userBoard[down][across] = 'D';
+				userBoard[down][across+1] = 'D';
 			}
 
 			boardOutput(userBoard);
@@ -212,26 +210,29 @@ check = false;
 			boardOutput(userBoard);
 			check = false;
 
+			cout << endl;
 
 
 
 
-
-
+//Ai code
 
 		while(check == false){
 
-			aiDown = rand()%10;
-			aiAcross = rand()%11;
-			aiDiretion = rand()%2;
 
-			if(aiDiretion == 1)
+			aiDirectionNum = rand()%2;
+
+			if(aiDirectionNum == 1)
 			{
-				aiDiretionChar = 'h'
+				aiDiretionChar = 'h';
+				down = rand()%10;
+				across = rand()%9;
 			}
 			else
 			{
-				aiDiretionChar = 'v'
+				aiDiretionChar = 'v';
+				down = rand()%9;
+				across = rand()%10;
 			}
 
 
@@ -244,24 +245,199 @@ check = false;
 		}
 
 
-			if(direction == 'v' && down < 9 && across < 10 && check == true)
+			if(aiDiretionChar == 'v' && down < 9 && across < 10 && check == true)
 			{
-				userBoard[down][across] = '#';
-				userBoard[down+1][across] = '#';
+				aiBoard[down][across] = '#';
+				aiBoard[down+1][across] = '#';
 			}
-			if(direction == 'h' && down < 10 && across < 9)
+			if(aiDiretionChar == 'h' && down < 10 && across < 9)
 			{
-				userBoard[down][across] = '#';
-				userBoard[down][across+1] = '#';
+				aiBoard[down][across] = '#';
+				aiBoard[down][across+1] = '#';
 			}
 
 
 
+check = false;
+
+while(check == false){
+
+
+	aiDirectionNum = rand()%2;
+
+	if(aiDirectionNum == 1)
+	{
+		aiDiretionChar = 'h';
+		down = rand()%10;
+		across = rand()%8;
+	}
+	else
+	{
+		aiDiretionChar = 'v';
+		down = rand()%8;
+		across = rand()%10;
+	}
+
+
+	if (aiDiretionChar == 'v' && aiBoard[down][across] == '-' && aiBoard[down+1][across] == '-' && aiBoard[down+2][across] == '-') {
+		check = true;
+	}
+	else if (aiDiretionChar == 'h' && aiBoard[down][across] == '-' && aiBoard[down][across+1] == '-' && aiBoard[down][across+2] == '-'){
+		check = true;
+	}
+}
+
+
+if(aiDiretionChar == 'v' && down < 8 && across < 10)
+{
+	aiBoard[down][across] = '#';
+	aiBoard[down+1][across] = '#';
+	aiBoard[down+2][across] = '#';
+}
+if(aiDiretionChar == 'h' && down < 9 && across < 8)
+{
+	aiBoard[down][across] = '#';
+	aiBoard[down][across+1] = '#';
+	aiBoard[down][across+2] = '#';
+}
+
+
+check = false;
+
+while(check == false){
+
+	aiDirectionNum = rand()%2;
+
+	if(aiDirectionNum == 1)
+	{
+		aiDiretionChar = 'h';
+		down = rand()%10;
+		across = rand()%8;
+	}
+	else
+	{
+		aiDiretionChar = 'v';
+		down = rand()%8;
+		across = rand()%10;
+	}
+
+
+	if (aiDiretionChar == 'v' && aiBoard[down][across] == '-' && aiBoard[down+1][across] == '-' && aiBoard[down+2][across] == '-') {
+		check = true;
+	}
+	else if (aiDiretionChar == 'h' && aiBoard[down][across] == '-' && aiBoard[down][across+1] == '-' && aiBoard[down][across+2] == '-'){
+		check = true;
+	}
+}
+
+
+if(aiDiretionChar == 'v' && down < 8 && across < 10)
+{
+	aiBoard[down][across] = '#';
+	aiBoard[down+1][across] = '#';
+	aiBoard[down+2][across] = '#';
+}
+if(aiDiretionChar == 'h' && down < 9 && across < 8)
+{
+	aiBoard[down][across] = '#';
+	aiBoard[down][across+1] = '#';
+	aiBoard[down][across+2] = '#';
+}
+
+check = false;
+
+while(check == false){
+
+
+	aiDirectionNum = rand()%2;
+
+	if(aiDirectionNum == 1)
+	{
+		aiDiretionChar = 'h';
+		down = rand()%10;
+		across = rand()%7;
+	}
+	else
+	{
+		aiDiretionChar = 'v';
+		down = rand()%7;
+		across = rand()%10;
+	}
+
+
+	if (aiDiretionChar == 'v' && aiBoard[down][across] == '-' && aiBoard[down+1][across] == '-' && aiBoard[down+2][across] == '-' && aiBoard[down+3][across] == '-') {
+		check = true;
+	}
+	else if (aiDiretionChar == 'h' && aiBoard[down][across] == '-' && aiBoard[down][across+1] == '-' && aiBoard[down][across+2] == '-' && aiBoard[down][across+3] == '-'){
+		check = true;
+	}
+}
+
+
+if(aiDiretionChar == 'v' && down < 7 && across < 10)
+{
+	aiBoard[down][across] = '#';
+	aiBoard[down+1][across] = '#';
+	aiBoard[down+2][across] = '#';
+	aiBoard[down+3][across] = '#';
+}
+if(aiDiretionChar == 'h' && down < 8 && across < 7)
+{
+	aiBoard[down][across] = '#';
+	aiBoard[down][across+1] = '#';
+	aiBoard[down][across+2] = '#';
+	aiBoard[down][across+3] = '#';
+}
+
+check = false;
 
 
 
+while(check == false){
+
+	aiDirectionNum = rand()%2;
+
+	if(aiDirectionNum == 1)
+	{
+		aiDiretionChar = 'h';
+		down = rand()%10;
+		across = rand()%6;
+	}
+	else
+	{
+		aiDiretionChar = 'v';
+		down = rand()%6;
+		across = rand()%10;
+	}
 
 
+	if (aiDiretionChar == 'v' && aiBoard[down][across] == '-' && aiBoard[down+1][across] == '-' && aiBoard[down+2][across] == '-' && aiBoard[down+3][across] == '-' && aiBoard[down+4][across] == '-') {
+		check = true;
+	}
+	else if (aiDiretionChar == 'h' && aiBoard[down][across] == '-' && aiBoard[down][across+1] == '-' && aiBoard[down][across+2] == '-' && aiBoard[down][across+3] == '-' && aiBoard[down][across+4] == '-'){
+		check = true;
+	}
+}
+
+
+if(aiDiretionChar == 'v' && down < 6 && across < 10)
+{
+	aiBoard[down][across] = '#';
+	aiBoard[down+1][across] = '#';
+	aiBoard[down+2][across] = '#';
+	aiBoard[down+3][across] = '#';
+	aiBoard[down+4][across] = '#';
+}
+if(aiDiretionChar == 'h' && down < 7 && across < 6)
+{
+	aiBoard[down][across] = '#';
+	aiBoard[down][across+1] = '#';
+	aiBoard[down][across+2] = '#';
+	aiBoard[down][across+3] = '#';
+	aiBoard[down][across+4] = '#';
+}
+
+boardOutput(aiBoard);
 
 return 0;
 }
