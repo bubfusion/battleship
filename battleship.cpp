@@ -27,7 +27,7 @@ for (int i = 0; i < 10; i++)
         aiBoard[i][j] = '-';
 			}
     }
-
+/*
 		cout << "This is your board!" << endl;
     boardOutput(userBoard);
 	while(check == false){
@@ -212,7 +212,7 @@ check = false;
 
 			cout << endl;
 
-
+*/
 //Ai code
 
 		while(check == false){
@@ -243,12 +243,12 @@ check = false;
 		}
 
 
-			if(aiDiretionChar == 'v' && down < 9 && across < 10 && check == true)
+			if(aiDiretionChar == 'v')
 			{
 				aiBoard[down][across] = 'D';
 				aiBoard[down+1][across] = 'D';
 			}
-			if(aiDiretionChar == 'h' && down < 10 && across < 9)
+			if(aiDiretionChar == 'h')
 			{
 				aiBoard[down][across] = 'D';
 				aiBoard[down][across+1] = 'D';
@@ -286,13 +286,13 @@ while(check == false){
 }
 
 
-if(aiDiretionChar == 'v' && down < 8 && across < 10)
+if(aiDiretionChar == 'v')
 {
 	aiBoard[down][across] = 'S';
 	aiBoard[down+1][across] = 'S';
 	aiBoard[down+2][across] = 'S';
 }
-if(aiDiretionChar == 'h' && down < 9 && across < 8)
+if(aiDiretionChar == 'h')
 {
 	aiBoard[down][across] = 'S';
 	aiBoard[down][across+1] = 'S';
@@ -329,13 +329,13 @@ while(check == false){
 }
 
 
-if(aiDiretionChar == 'v' && down < 8 && across < 10)
+if(aiDiretionChar == 'v')
 {
 	aiBoard[down][across] = 'B';
 	aiBoard[down+1][across] = 'B';
 	aiBoard[down+2][across] = 'B';
 }
-if(aiDiretionChar == 'h' && down < 9 && across < 8)
+if(aiDiretionChar == 'h')
 {
 	aiBoard[down][across] = 'B';
 	aiBoard[down][across+1] = 'B';
@@ -372,14 +372,14 @@ while(check == false){
 }
 
 
-if(aiDiretionChar == 'v' && down < 7 && across < 10)
+if(aiDiretionChar == 'v')
 {
 	aiBoard[down][across] = 'C';
 	aiBoard[down+1][across] = 'C';
 	aiBoard[down+2][across] = 'C';
 	aiBoard[down+3][across] = 'C';
 }
-if(aiDiretionChar == 'h' && down < 8 && across < 7)
+if(aiDiretionChar == 'h')
 {
 	aiBoard[down][across] = 'C';
 	aiBoard[down][across+1] = 'C';
@@ -418,7 +418,7 @@ while(check == false){
 }
 
 
-if(aiDiretionChar == 'v' && down < 6 && across < 10)
+if(aiDiretionChar == 'v')
 {
 	aiBoard[down][across] = 'A';
 	aiBoard[down+1][across] = 'A';
@@ -426,7 +426,7 @@ if(aiDiretionChar == 'v' && down < 6 && across < 10)
 	aiBoard[down+3][across] = 'A';
 	aiBoard[down+4][across] = 'A';
 }
-if(aiDiretionChar == 'h' && down < 7 && across < 6)
+if(aiDiretionChar == 'h')
 {
 	aiBoard[down][across] = 'A';
 	aiBoard[down][across+1] = 'A';
