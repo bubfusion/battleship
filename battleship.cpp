@@ -245,13 +245,13 @@ check = false;
 
 			if(aiDiretionChar == 'v' && down < 9 && across < 10 && check == true)
 			{
-				aiBoard[down][across] = '#';
-				aiBoard[down+1][across] = '#';
+				aiBoard[down][across] = 'D';
+				aiBoard[down+1][across] = 'D';
 			}
 			if(aiDiretionChar == 'h' && down < 10 && across < 9)
 			{
-				aiBoard[down][across] = '#';
-				aiBoard[down][across+1] = '#';
+				aiBoard[down][across] = 'D';
+				aiBoard[down][across+1] = 'D';
 			}
 
 
@@ -288,15 +288,15 @@ while(check == false){
 
 if(aiDiretionChar == 'v' && down < 8 && across < 10)
 {
-	aiBoard[down][across] = '#';
-	aiBoard[down+1][across] = '#';
-	aiBoard[down+2][across] = '#';
+	aiBoard[down][across] = 'S';
+	aiBoard[down+1][across] = 'S';
+	aiBoard[down+2][across] = 'S';
 }
 if(aiDiretionChar == 'h' && down < 9 && across < 8)
 {
-	aiBoard[down][across] = '#';
-	aiBoard[down][across+1] = '#';
-	aiBoard[down][across+2] = '#';
+	aiBoard[down][across] = 'S';
+	aiBoard[down][across+1] = 'S';
+	aiBoard[down][across+2] = 'S';
 }
 
 
@@ -331,15 +331,15 @@ while(check == false){
 
 if(aiDiretionChar == 'v' && down < 8 && across < 10)
 {
-	aiBoard[down][across] = '#';
-	aiBoard[down+1][across] = '#';
-	aiBoard[down+2][across] = '#';
+	aiBoard[down][across] = 'B';
+	aiBoard[down+1][across] = 'B';
+	aiBoard[down+2][across] = 'B';
 }
 if(aiDiretionChar == 'h' && down < 9 && across < 8)
 {
-	aiBoard[down][across] = '#';
-	aiBoard[down][across+1] = '#';
-	aiBoard[down][across+2] = '#';
+	aiBoard[down][across] = 'B';
+	aiBoard[down][across+1] = 'B';
+	aiBoard[down][across+2] = 'B';
 }
 
 check = false;
@@ -374,17 +374,17 @@ while(check == false){
 
 if(aiDiretionChar == 'v' && down < 7 && across < 10)
 {
-	aiBoard[down][across] = '#';
-	aiBoard[down+1][across] = '#';
-	aiBoard[down+2][across] = '#';
-	aiBoard[down+3][across] = '#';
+	aiBoard[down][across] = 'C';
+	aiBoard[down+1][across] = 'C';
+	aiBoard[down+2][across] = 'C';
+	aiBoard[down+3][across] = 'C';
 }
 if(aiDiretionChar == 'h' && down < 8 && across < 7)
 {
-	aiBoard[down][across] = '#';
-	aiBoard[down][across+1] = '#';
-	aiBoard[down][across+2] = '#';
-	aiBoard[down][across+3] = '#';
+	aiBoard[down][across] = 'C';
+	aiBoard[down][across+1] = 'C';
+	aiBoard[down][across+2] = 'C';
+	aiBoard[down][across+3] = 'C';
 }
 
 check = false;
@@ -420,19 +420,19 @@ while(check == false){
 
 if(aiDiretionChar == 'v' && down < 6 && across < 10)
 {
-	aiBoard[down][across] = '#';
-	aiBoard[down+1][across] = '#';
-	aiBoard[down+2][across] = '#';
-	aiBoard[down+3][across] = '#';
-	aiBoard[down+4][across] = '#';
+	aiBoard[down][across] = 'A';
+	aiBoard[down+1][across] = 'A';
+	aiBoard[down+2][across] = 'A';
+	aiBoard[down+3][across] = 'A';
+	aiBoard[down+4][across] = 'A';
 }
 if(aiDiretionChar == 'h' && down < 7 && across < 6)
 {
-	aiBoard[down][across] = '#';
-	aiBoard[down][across+1] = '#';
-	aiBoard[down][across+2] = '#';
-	aiBoard[down][across+3] = '#';
-	aiBoard[down][across+4] = '#';
+	aiBoard[down][across] = 'A';
+	aiBoard[down][across+1] = 'A';
+	aiBoard[down][across+2] = 'A';
+	aiBoard[down][across+3] = 'A';
+	aiBoard[down][across+4] = 'A';
 }
 
 boardOutput(aiBoard);
