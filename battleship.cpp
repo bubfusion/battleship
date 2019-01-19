@@ -5,6 +5,9 @@ using namespace std;
 
 void boardOutput(char output[][10]);
 
+void playerShot(char aiBoard[][10], int playerShotAcross, int playerShotDown, char userAttack[][10]);
+void aiShot(char userBoard[][10],int aiShotDown,int aiShotAcross);
+
 int main()
 {
 srand(time(NULL));
@@ -17,6 +20,11 @@ int across;
 bool check = false;
 int aiDirectionNum;
 char aiDiretionChar;
+int playerShotDown;
+int playerShotAcross;
+int aiShotDown;
+int aiShotAcross;
+bool game;
 
 for (int i = 0; i < 10; i++)
 		{
@@ -437,8 +445,72 @@ if(aiDiretionChar == 'h')
 
 boardOutput(aiBoard);
 
+
+
+
+
+	while(game = true)
+	{
+		cin >> playerShotAcross;
+		cin >> playerShotDown;
+		playerShot(aiBoard,playerShotDown,playerShotAcross,userAttack);
+		boardOutput(userAttack);
+	}
+
 return 0;
+
+
+
 }
+
+void playerShot(char aiBoard[][10], int playerShotAcross, int playerShotDown,char userAttack[][10])
+	{
+	bool check = false;
+	while(check == false){
+
+		if(userAttack[playerShotDown][playerShotAcross] == 'O' || userAttack[playerShotDown][playerShotAcross] == 'X')
+		{
+			cout << "You already attacked here!" << endl;
+			cout << "Input how many spaces down you would like to attack" << endl;
+			cin >> playerShotDown;
+			cout << "Input how many spaces across you would like to attack" << endl;
+			cin >> playerShotAcross;
+			check = false;
+		}
+		else if(aiBoard[playerShotDown][playerShotAcross] == '-')
+			{
+				cout << "Your shot missed" << endl;
+				userAttack[playerShotDown][playerShotAcross] = 'O';
+				check = true;
+			}
+		else if(aiBoard[playerShotDown][playerShotAcross] != '-')
+		{
+			cout << "Your shot hit!" << endl;
+			userAttack[playerShotDown][playerShotAcross] = 'X';
+			check = true;
+		}
+	}
+}
+
+void aiShot(char userBoard[][10],int aiShotDown,int aiShotAcross)
+	{
+	bool check = false;
+	while(check == false)
+		{
+		aiShotDown = rand()%11;
+		aiShotAcross = rand()%11;
+		if(userBoard[aiShotDown][aiShotAcross] == 'X')
+		{
+			
+		}
+
+
+		}
+
+	}
+
+
+
 
 void boardOutput(char output[][10])
 {
