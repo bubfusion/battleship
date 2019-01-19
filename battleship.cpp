@@ -451,10 +451,14 @@ boardOutput(aiBoard);
 
 	while(game = true)
 	{
-		cin >> playerShotAcross;
+		cout << "Input how many spaces down you would like to attack" << endl;
 		cin >> playerShotDown;
+		cout << "Input how many spaces across you would like to attack" << endl;
+		cin >> playerShotAcross;
 		playerShot(aiBoard,playerShotDown,playerShotAcross,userAttack);
 		boardOutput(userAttack);
+		aiShot(userBoard,aiShotDown,aiShotAcross);
+		boardOutput(userBoard);
 	}
 
 return 0;
@@ -501,16 +505,22 @@ void aiShot(char userBoard[][10],int aiShotDown,int aiShotAcross)
 		aiShotAcross = rand()%11;
 		if(userBoard[aiShotDown][aiShotAcross] == 'X')
 		{
-			
+			check = false;
 		}
-
-
+		else if(userBoard[aiShotDown][aiShotAcross] != '-')
+		{
+			cout << "The ai hit his shot!" << endl;
+			userBoard[aiShotDown][aiShotAcross] = 'X';
+			check = true;
 		}
-
+		else if(userBoard[aiShotDown][aiShotAcross] == '-')
+		{
+			cout << "The ai missed his shot" << endl;
+			userBoard[aiShotDown][aiShotAcross] = 'O';
+			check = true;
+		}
 	}
-
-
-
+}
 
 void boardOutput(char output[][10])
 {
