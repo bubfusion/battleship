@@ -7,7 +7,7 @@ void boardOutput(char output[][10]);
 
 void playerShot(char aiBoard[][10], int playerShotAcross, int playerShotDown, char userAttack[][10]);
 void aiShot(char userBoard[][10],int aiShotDown,int aiShotAcross);
-
+bool gameOver(char userBoard[][10],char aiBoard[][10]);
 int main()
 {
 srand(time(NULL));
@@ -35,7 +35,7 @@ for (int i = 0; i < 10; i++)
         aiBoard[i][j] = '-';
 			}
     }
-/*
+
 		cout << "This is your board!" << endl;
     boardOutput(userBoard);
 	while(check == false){
@@ -220,7 +220,7 @@ check = false;
 
 			cout << endl;
 
-*/
+
 //Ai code
 
 		while(check == false){
@@ -443,14 +443,16 @@ if(aiDiretionChar == 'h')
 	aiBoard[down][across+4] = 'A';
 }
 
-boardOutput(aiBoard);
-
 
 
 
 
 	while(game = true)
 	{
+		if (gameOver(userBoard,aiBoard) == false)
+		{
+			return 1;
+		}
 		cout << "Input how many spaces down you would like to attack" << endl;
 		cin >> playerShotDown;
 		cout << "Input how many spaces across you would like to attack" << endl;
@@ -459,6 +461,7 @@ boardOutput(aiBoard);
 		boardOutput(userAttack);
 		aiShot(userBoard,aiShotDown,aiShotAcross);
 		boardOutput(userBoard);
+
 	}
 
 return 0;
@@ -521,6 +524,50 @@ void aiShot(char userBoard[][10],int aiShotDown,int aiShotAcross)
 		}
 	}
 }
+
+
+
+	bool gameOver(char userBoard[][10],char aiBoard[][10])
+	{
+		int playerships = 0;
+		int aiShips = 0;
+		for (int i = 0; i < 10; i++)
+	  {
+	    for(int j = 0; j < 10; j++)
+	    {
+	      if(userBoard[i][j] == 'A' || userBoard[i][j] == 'S'|| userBoard[i][j] == 'B'|| userBoard[i][j] == 'C' || userBoard[i][j] == 'D')
+				{
+					playerships = playerships + 1;
+				}
+	    }
+	  }
+		for (int i = 0; i < 10; i++)
+		{
+			for(int j = 0; j < 10; j++)
+			{
+				if(aiBoard[i][j] == 'A' || aiBoard[i][j] == 'S'|| aiBoard[i][j] == 'B'|| aiBoard[i][j] == 'C' || aiBoard[i][j] == 'D')
+				{
+					aiShips = aiShips + 1;
+				}
+			}
+		}
+		if (aiShips == 0) {
+			cout << "The player wins!" << endl;
+			return false;
+		}
+		else if (playerships == 0) {
+			cout << "Ai wins!" << endl;
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+
+
+
 
 void boardOutput(char output[][10])
 {
